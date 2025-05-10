@@ -8,7 +8,7 @@ case $cmd in
         ./kanbash-ls
         ;;
     "title")
-        ./kanbash-title $2
+        [[ -n $2 ]] && ./kanbash-title $2
         ;;
     *)
         >&2 echo "Not a valid kanbash command: $cmd"

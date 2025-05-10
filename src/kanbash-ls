@@ -7,22 +7,15 @@ todo=(${KANBASH_TASK_DIR}1-todo*)
 doing=(${KANBASH_TASK_DIR}2-doing*)
 done=(${KANBASH_TASK_DIR}3-done*)
 
-echo TODO:
-for task in "${todo[@]}"
-do
-    echo $(kanbash title "$task")
-done
-echo
+counts=$(printf "%s\n" ${#todo[@]} ${#doing[@]} ${#done[@]})
+num_rows=$(echo "$counts" | sort -n | tail -n1)
 
-echo DOING:
-for task in "${doing[@]}"
-do
-    echo $(kanbash title "$task")
-done
-echo
+table="${KANBASH_TASK_DIR}.table"
+echo "TODO,DOING,DONE" > $table
 
-echo DONE:
-for task in "${done[@]}"
+for i in $(seq 0 $num_rows)
 do
-    echo $(kanbash title "$task")
+    echo "$(kanbash title ${todo[i]}),$(kanbash title ${doing[i]}),$(kanbash title ${done[i]})" >> $table
 done
+
+column -t -s ',' $table
