@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cmd=$1
+
+case $cmd in
+    ls)
+        ./kanbash-ls
+        ;;
+    *)
+        >&2 echo "Not a valid kanbash command: $cmd"
+        exit 1
+        ;;
+esac
