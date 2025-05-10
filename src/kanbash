@@ -1,14 +1,12 @@
 #!/bin/bash
 
 cmd=$1
-export KANBASH_TASK_DIR="../tasks/"
+export KANBASH_DIR=$HOME/projects/kanbash
+export KANBASH_TASK_DIR=$KANBASH_DIR/tasks/
 
 case $cmd in
     ls)
-        ./kanbash-ls
-        ;;
-    "title")
-        [[ -n $2 ]] && ./kanbash-title $2
+        kanbash-ls
         ;;
     *)
         >&2 echo "Not a valid kanbash command: $cmd"
