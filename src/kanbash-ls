@@ -10,19 +10,19 @@ done=(${KANBASH_TASK_DIR}3-done*)
 echo TODO:
 for task in "${todo[@]}"
 do
-    echo "$task"
+    echo $(kanbash title "$task")
 done
 echo
 
 echo DOING:
 for task in "${doing[@]}"
 do
-    echo "$task"
+    echo $(kanbash title "$task")
 done
 echo
 
 echo DONE:
 for task in "${done[@]}"
 do
-    echo "$task"
+    echo $(kanbash title "$task")
 done

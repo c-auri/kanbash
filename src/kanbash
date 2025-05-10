@@ -7,6 +7,9 @@ case $cmd in
     ls)
         ./kanbash-ls
         ;;
+    "title")
+        ./kanbash-title $2
+        ;;
     *)
         >&2 echo "Not a valid kanbash command: $cmd"
         exit 1
