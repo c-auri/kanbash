@@ -2,12 +2,18 @@
 
 function get_title
 {
-    [[ -n $1 ]] && echo $(awk '/^# / { sub(/^# /, ""); print }' $1)
+    [[ -f $1 ]] && echo $(awk '/^# / { sub(/^# /, ""); print }' $1 | head -1)
 }
 
 function get_id
 {
-    [[ -n $1 ]] && echo $(basename $1 | cut -d"-" -f3)
+    filename=$(basename $1)
+    if [[ -f $1 && $filename =~ [1-todo|2-doing|3-done]-[0-9]*- ]]
+    then
+        echo $filename | cut -d"-" -f3
+    else
+        return 1
+    fi
 }
 
 function get_cellname
