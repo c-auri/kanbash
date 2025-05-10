@@ -4,3 +4,13 @@ function get_title
 {
     [[ -n $1 ]] && echo $(awk '/^# / { sub(/^# /, ""); print }' $1)
 }
+
+function get_id
+{
+    [[ -n $1 ]] && echo $(basename $1 | cut -d"-" -f3)
+}
+
+function get_cellname
+{
+    echo "$(get_id $1) $(get_title $1)"
+}

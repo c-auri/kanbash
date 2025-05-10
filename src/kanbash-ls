@@ -13,11 +13,16 @@ counts=$(printf "%s\n" ${#todo[@]} ${#doing[@]} ${#done[@]})
 num_rows=$(echo "$counts" | sort -n | tail -n1)
 
 table="${KANBASH_TASK_DIR}.table"
-echo "TODO,DOING,DONE" > $table
+echo "01 TODO,02 DOING,03 DONE" > $table
+printf '\n' >> $table
 
 for (( i=0; i<$num_rows; i++ ))
 do
-    echo "$(get_title ${todo[i]}),$(get_title ${doing[i]}),$(get_title ${done[i]})" >> $table
+    todotask="$(get_cellname ${todo[i]})"
+    doingtask="$(get_cellname ${doing[i]})"
+    donetask="$(get_cellname ${done[i]})"
+
+    echo "$todotask,$doingtask,$donetask" >> $table
 done
 
-column -t -s ',' $table
+column -tL -s ',' -o '          ' $table
