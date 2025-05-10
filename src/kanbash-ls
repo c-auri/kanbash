@@ -3,10 +3,26 @@
 # causes array to be empty when there are no matches
 shopt -s nullglob
 
-todo=(${KANBASH_TASK_DIR}/1-todo*)
-doing=(${KANBASH_TASK_DIR}/2-doing*)
-done=(${KANBASH_TASK_DIR}/3-done*)
+todo=(${KANBASH_TASK_DIR}1-todo*)
+doing=(${KANBASH_TASK_DIR}2-doing*)
+done=(${KANBASH_TASK_DIR}3-done*)
 
-echo ${#todo[@]}
-echo ${#doing[@]}
-echo ${#done[@]}
+echo TODO:
+for task in "${todo[@]}"
+do
+    echo "$task"
+done
+echo
+
+echo DOING:
+for task in "${doing[@]}"
+do
+    echo "$task"
+done
+echo
+
+echo DONE:
+for task in "${done[@]}"
+do
+    echo "$task"
+done
