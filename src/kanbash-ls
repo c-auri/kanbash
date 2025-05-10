@@ -6,10 +6,10 @@ source $KANBASH_DIR/src/kanbash-utils
 shopt -s nullglob
 
 todo=(${KANBASH_TASK_DIR}1-todo*)
-doing=(${KANBASH_TASK_DIR}2-doing*)
+doin=(${KANBASH_TASK_DIR}2-doing*)
 done=(${KANBASH_TASK_DIR}3-done*)
 
-counts=$(printf "%s\n" ${#todo[@]} ${#doing[@]} ${#done[@]})
+counts=$(printf "%s\n" ${#todo[@]} ${#doin[@]} ${#done[@]})
 num_rows=$(echo "$counts" | sort -n | tail -n1)
 
 table="${KANBASH_TASK_DIR}.table"
@@ -19,10 +19,10 @@ printf '\n' >> $table
 for (( i=0; i<$num_rows; i++ ))
 do
     todotask="$(get_cellname ${todo[i]})"
-    doingtask="$(get_cellname ${doing[i]})"
+    dointask="$(get_cellname ${doin[i]})"
     donetask="$(get_cellname ${done[i]})"
 
-    echo "$todotask,$doingtask,$donetask" >> $table
+    echo "$todotask,$dointask,$donetask" >> $table
 done
 
 column -tL -s ',' -o '          ' $table
