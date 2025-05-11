@@ -1,6 +1,9 @@
 # kanbash
 
-A collection of bash scripts to manage tasks on a kanban board. Work in progress.
+A kanban board managed by bash scripts. Work in Progress.
+
+> [!NOTE]
+> This is a learning project and I am not confident that I will ever finish it.
 
 ## Dependencies
 - [markdown-utils](https://github.com/c-auri/markdown-utils)
