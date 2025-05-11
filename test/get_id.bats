@@ -5,9 +5,13 @@ function setup
 
     DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )"
     source $DIR/../src/kanbash-utils
+
+    echo tmpdir:
+    echo $BATS_TMPDIR
 }
 
 @test "get-id returns ID of new task that is defined in filename" {
+    echo $BATS_TEST_TMPDIR
     testfile=$BATS_TEST_TMPDIR/1-todo-21-get-id.md
     touch $testfile
     run get_id $testfile
