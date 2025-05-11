@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $KANBASH_DIR/src/kanbash-utils
+source $MD_UTILS
 
 # causes array to be empty when there are no matches
 shopt -s nullglob

@@ -1,8 +1,10 @@
 #!/bin/bash
 
 cmd=$1
+
 export KANBASH_DIR=$HOME/projects/kanbash
 export KANBASH_TASK_DIR=$KANBASH_DIR/tasks/
+export MD_UTILS=$HOME/.local/lib/md-utils
 
 case $cmd in
     ls)

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-function get_title
-{
-    [[ -f $1 ]] && echo $(awk '/^# / { sub(/^# /, ""); print }' $1 | head -1)
-}
-
 function get_id
 {
     filename=$(basename $1)
